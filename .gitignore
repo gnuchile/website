@@ -13,5 +13,6 @@ DEADJOE
 /nbproject/private/
 
 # others...
+.hg
 .hg*
 .svn
