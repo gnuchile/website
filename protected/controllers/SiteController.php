@@ -29,7 +29,12 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+
+        $dataProvider = new CActiveDataProvider(Post::model()->inFrontPage());
+
+		$this->render('index', array(
+            'dataProvider'=>$dataProvider,
+        ));
 	}
 
 	/**
@@ -77,6 +82,11 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
+        if(Yii::app()->user->id !== NULL)
+        {
+            $this->redirect('index');
+        }
+
 		$model=new LoginForm;
 
 		// if it is ajax validation request
