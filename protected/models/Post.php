@@ -38,6 +38,9 @@ class Post extends BasePost
             'inBlog' => array(
                 'condition' => 'in_blog=1',
             ),
+            'inFrontPage' => array(
+                'condition' => 'in_frontpage=1',
+            ),
             'recently'  => array(
                 'order' => 'create_time DESC',
                 'limit' => 5,
