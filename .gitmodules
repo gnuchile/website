@@ -1,0 +1,3 @@
+[submodule "protected/extensions/giix"]
+	path = protected/extensions/giix
+	url = https://github.com/rcoelho/giix.git
