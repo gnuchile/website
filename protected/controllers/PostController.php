@@ -1,14 +1,17 @@
 <?php
 
-class PostController extends GxController {
+class PostController extends GxController
+{
 
-    public function filters() {
+    public function filters()
+    {
         return array(
             'accessControl',
         );
     }
 
-    public function accessRules() {
+    public function accessRules()
+    {
         return array(
             array('allow',
                 'actions' => array('index', 'view'),
@@ -28,80 +31,91 @@ class PostController extends GxController {
         );
     }
 
-	public function actionView($id) {
-		$this->render('view', array(
-			'model' => $this->loadModel($id, 'Post'),
-		));
-	}
+    public function actionView($id)
+    {
+        $this->render('view', array(
+            'model' => $this->loadModel($id, 'Post'),
+        ));
+    }
 
-	public function actionCreate() {
-		$model = new Post;
-
-
-		if (isset($_POST['Post'])) {
-			$model->setAttributes($_POST['Post']);
-			$relatedData = array(
-				'categories' => $_POST['Post']['categories'] === '' ? null : $_POST['Post']['categories'],
-				);
-
-			if ($model->saveWithRelated($relatedData)) {
-				if (Yii::app()->getRequest()->getIsAjaxRequest())
-					Yii::app()->end();
-				else
-					$this->redirect(array('view', 'id' => $model->id));
-			}
-		}
-
-		$this->render('create', array( 'model' => $model));
-	}
-
-	public function actionUpdate($id) {
-		$model = $this->loadModel($id, 'Post');
+    public function actionCreate()
+    {
+        $model = new Post;
 
 
-		if (isset($_POST['Post'])) {
-			$model->setAttributes($_POST['Post']);
-			$relatedData = array(
-				'categories' => $_POST['Post']['categories'] === '' ? null : $_POST['Post']['categories'],
-				);
+        if (isset($_POST['Post']))
+        {
+            $model->setAttributes($_POST['Post']);
+            $relatedData = array(
+                'categories' => $_POST['Post']['categories'] === '' ? null : $_POST['Post']['categories'],
+            );
 
-			if ($model->saveWithRelated($relatedData)) {
-				$this->redirect(array('view', 'id' => $model->id));
-			}
-		}
+            if ($model->saveWithRelated($relatedData))
+            {
+                if (Yii::app()->getRequest()->getIsAjaxRequest())
+                    Yii::app()->end();
+                else
+                    $this->redirect(array('view', 'id' => $model->id));
+            }
+        }
 
-		$this->render('update', array(
-				'model' => $model,
-				));
-	}
+        $this->render('create', array('model' => $model));
+    }
 
-	public function actionDelete($id) {
-		if (Yii::app()->getRequest()->getIsPostRequest()) {
-			$this->loadModel($id, 'Post')->delete();
+    public function actionUpdate($id)
+    {
+        $model = $this->loadModel($id, 'Post');
 
-			if (!Yii::app()->getRequest()->getIsAjaxRequest())
-				$this->redirect(array('admin'));
-		} else
-			throw new CHttpException(400, Yii::t('app', 'Your request is invalid.'));
-	}
 
-	public function actionIndex() {
-		$dataProvider = new CActiveDataProvider('Post');
-		$this->render('index', array(
-			'dataProvider' => $dataProvider,
-		));
-	}
+        if (isset($_POST['Post']))
+        {
+            $model->setAttributes($_POST['Post']);
+            $relatedData = array(
+                'categories' => $_POST['Post']['categories'] === '' ? null : $_POST['Post']['categories'],
+            );
 
-	public function actionAdmin() {
-		$model = new Post('search');
-		$model->unsetAttributes();
+            if ($model->saveWithRelated($relatedData))
+            {
+                $this->redirect(array('view', 'id' => $model->id));
+            }
+        }
 
-		if (isset($_GET['Post']))
-			$model->setAttributes($_GET['Post']);
+        $this->render('update', array(
+            'model' => $model,
+        ));
+    }
 
-		$this->render('admin', array(
-			'model' => $model,
-		));
-	}
+    public function actionDelete($id)
+    {
+        if (Yii::app()->getRequest()->getIsPostRequest())
+        {
+            $this->loadModel($id, 'Post')->delete();
+
+            if (!Yii::app()->getRequest()->getIsAjaxRequest())
+                $this->redirect(array('admin'));
+        } else
+            throw new CHttpException(400, Yii::t('app', 'Your request is invalid.'));
+    }
+
+    public function actionIndex()
+    {
+        $dataProvider = new CActiveDataProvider('Post');
+        $this->render('index', array(
+            'dataProvider' => $dataProvider,
+        ));
+    }
+
+    public function actionAdmin()
+    {
+        $model = new Post('search');
+        $model->unsetAttributes();
+
+        if (isset($_GET['Post']))
+            $model->setAttributes($_GET['Post']);
+
+        $this->render('admin', array(
+            'model' => $model,
+        ));
+    }
 
 }
