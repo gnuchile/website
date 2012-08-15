@@ -18,7 +18,14 @@ class User extends BaseUser
             );
         }
 
+        public function relations()
+        {
+            $relations = parent::relations();
 
+            $relations['blogPosts'] = array(self::HAS_MANY, 'Post', 'user_id', 'condition'=>'in_blog=1');
+
+            return $relations;
+        }
 
         protected function beforeSave()
         {
