@@ -67,13 +67,16 @@
 
                 echo CHtml::openTag('div', array('class'=>'controls'));
                 $this->widget('zii.widgets.jui.CJuiDatePicker', array(
-                    'name'=>'Post[publication_date]',
+                    'model'=>$model,
+                    'attribute'=>'publication_date',
+//                    'name'=>'Post[publication_date]',
                     // additional javascript options for the date picker plugin
                     'options'=>array(
                         'showAnim'=>'fold',
                         'changeMonth'=>true,
                         'changeYear'=>true,
-                    ),
+                        'dateFormat'=>'yy-mm-dd',
+                        ),
                     'language'=>'es',
                     'htmlOptions'=>array(
 //                        'style'=>'height:20px;',
