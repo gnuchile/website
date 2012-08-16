@@ -45,7 +45,7 @@
 				<div class="span8">
 					<p class="pull-right">
 						Call now on 555 555 555<br />
-						Follow us on <a class="badge badge-info" href="#" target="_blank">Twitter</a>
+						Síguenos en <a class="badge badge-important" href="http://identi.ca/fundaciongnuchile" target="_blank">Identi.ca</a>
 					</p>
 				</div>
 			</div>
@@ -94,10 +94,10 @@
 		<footer class="span12">
 			<div class="row">
 				<div class="span8">
-					<p>Copyright &copy; <?php echo date('Y'); ?> by My Company - All Rights Reserved.</p>
+					<p>Copyright &copy; <?php echo date('Y'); ?> by Fundación GNUCHILE - Todo el contenido del sitio está bajo licencia Creative Commons BY-SA, a menos que se especifique lo contrario.</p>
 				</div>
 				<div class="span4">
-					<p style="text-align:right;">Web Design by <a href="#" target="_blank">Cool Company</a></p>
+					<p style="text-align:right;"><a href="#" target="_blank"></a></p>
 				</div>
 			</div>
 		</footer>
@@ -115,7 +115,7 @@
 	s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/jquery.featureList-1.0.0.js"></script>
-<script language="javascript">
+<script type="text/javascript">
     $(document).ready(function() {
         $.featureList(
             $("#tabs li a"),

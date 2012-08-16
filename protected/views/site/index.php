@@ -8,14 +8,14 @@
             <ul id="tabs">
                 <li>
                     <a href="javascript:;">
-                        <img src="images/difusion.png" />
+                        <img alt="" src="images/difusion.png" />
                         <h3>Difusi&oacute;n</h3>
                         <span>Dando a conocer el Software Libre</span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <img src="images/capacitacion.png" />
+                        <img alt="" src="images/capacitacion.png" />
                         <h3>capacitaci&oacute;n</h3>
                         <span>Educando sobre su importancia</span>
 
@@ -23,7 +23,7 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <img src="images/comunidad.png" />
+                        <img alt="" src="images/comunidad.png" />
                         <h3>Comunidad</h3>
                         <span>Compartimos Software Libre</span>
                     </a>
@@ -32,16 +32,16 @@
             </ul>
             <ul id="output">
                 <li>
-                    <img src="images/banner001.jpg" />
+                    <img alt="" src="images/banner001.jpg" />
                     <a href="http://www.gnewbook.org/pg/photos/owned/group:152">Ver m&aacute;s detalles</a>
                 </li>
                 <li>
 
-                    <img src="images/banner002.jpg" />
+                    <img alt="" src="images/banner002.jpg" />
                     <a href="http://www.socios.fundaciongnuchile.cl/unirse.php">Ver m&aacute;s detalles</a>
                 </li>
                 <li>
-                    <img src="images/banner003.jpg" />
+                    <img alt="" src="images/banner003.jpg" />
                     <a href="http://www.gnewbook.org">Ver m&aacute;s detalles</a>
                 </li>
             </ul>
