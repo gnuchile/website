@@ -2,7 +2,6 @@
 
 class PostController extends GxController
 {
-
     public function filters()
     {
         return array(
@@ -42,7 +41,6 @@ class PostController extends GxController
     {
         $model = new Post;
 
-
         if (isset($_POST['Post']))
         {
             $model->setAttributes($_POST['Post']);
@@ -65,7 +63,6 @@ class PostController extends GxController
     public function actionUpdate($id)
     {
         $model = $this->loadModel($id, 'Post');
-
 
         if (isset($_POST['Post']))
         {
