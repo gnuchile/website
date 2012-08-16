@@ -19,10 +19,12 @@ class Post extends BasePost
 
         if ($user)
         {
-            $this->user_id = $user->id;
+            // si no tiene usuario lo asignamos, sólo si pasa eso
+            if($this->user_id == NULL)
+                $this->user_id = $user->id;
+
             $this->created_at = $createdAt;
         }
-
         return parent::beforeValidate();
     }
 
