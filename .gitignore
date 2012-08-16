@@ -16,3 +16,4 @@ DEADJOE
 .hg
 .hg*
 .svn
+/themes/base/css/style1.css # archivo autogenerado
