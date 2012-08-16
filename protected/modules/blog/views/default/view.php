@@ -1,56 +1,33 @@
 <?php
-echo $model->id;
 
-//var_dump($posts);
-foreach($posts as $p)
-{
-    //var_dump($p->attributes);
-    echo $p->title.'<br>';
-    echo $p->body.'<br>';
-}
-exit;
+$this->pageTitle = 'Blog de '.$model->username;
+
 $this->breadcrumbs = array(
-	$model->label(2) => array('index'),
+    ucwords($this->module->id) => array('index'),
 	GxHtml::valueEx($model),
 );
 
-$this->menu=array(
-	array('label'=>'List' . ' ' . $model->label(2), 'url'=>array('index')),
-	array('label'=>'Create' . ' ' . $model->label(), 'url'=>array('create')),
-	array('label'=>'Update' . ' ' . $model->label(), 'url'=>array('update', 'id' => $model->id)),
-	array('label'=>'Delete' . ' ' . $model->label(), 'url'=>'#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage' . ' ' . $model->label(2), 'url'=>array('admin')),
-);
-?>
+echo CHtml::tag('h1', array(), $this->pageTitle);
 
-<h1><?php echo 'View' . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+if(!empty($posts))
+{
+    foreach ($posts as $post)
+    {
+        echo GxHtml::openTag('article', array());
+        echo CHtml::tag('h2', array(), $post->title);
+        echo CHtml::tag('span', array('class'=>'label'), $post->publication_date);
+        echo CHtml::tag('p', array(), $post->body);
+        foreach($post->attributes as $k => $a)
+        {
+    //        var_dump($k.' => '. $a);
+        }
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data' => $model,
-	'attributes' => array(
-'id',
-array(
-			'name' => 'user',
-			'type' => 'raw',
-			'value' => $model->user !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->user)), array('user/view', 'id' => GxActiveRecord::extractPkValue($model->user, true))) : null,
-			),
-'title',
-'body',
-'status',
-'in_frontpage:boolean',
-'created_at',
-'publication_date',
-'visits',
-	),
-)); ?>
-
-<h2><?php echo GxHtml::encode($model->getRelationLabel('categories')); ?></h2>
-<?php
-	echo GxHtml::openTag('ul');
-	foreach($model->categories as $relatedModel) {
-		echo GxHtml::openTag('li');
-		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('category/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
-		echo GxHtml::closeTag('li');
-	}
-	echo GxHtml::closeTag('ul');
+        echo GxHtml::link('Seguir leyendo &raquo;', array('/post/view', 'id'=>$post->id), array('class'=>'btn'));
+        echo GxHtml::closeTag('article');
+    }
+}
+else
+{
+    echo CHtml::tag('p', array('class'=>'alert alert-info'), 'Ups! '.$model->username. ' aún no tiene publicaciones en su blog :(');
+}
 ?>
