@@ -1,51 +1,46 @@
 <?php $this->pageTitle = Yii::app()->name; ?>
+<div class="page-header header visible-desktop">
+    <div id="feature_list">
+        <ul id="tabs">
+            <li>
+                <a href="javascript:;">
+                    <img alt="" src="images/difusion.png" />
+                    <h3>Difusi&oacute;n</h3>
+                    <span>Dando a conocer el Software Libre</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img alt="" src="images/capacitacion.png" />
+                    <h3>capacitaci&oacute;n</h3>
+                    <span>Educando sobre su importancia</span>
 
-<div class="page-header header">
-<!--    <h1>Bienvenido a <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>-->
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img alt="" src="images/comunidad.png" />
+                    <h3>Comunidad</h3>
+                    <span>Compartimos Software Libre</span>
+                </a>
 
-    <div class="">
-        <div id="feature_list">
-            <ul id="tabs">
-                <li>
-                    <a href="javascript:;">
-                        <img alt="" src="images/difusion.png" />
-                        <h3>Difusi&oacute;n</h3>
-                        <span>Dando a conocer el Software Libre</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <img alt="" src="images/capacitacion.png" />
-                        <h3>capacitaci&oacute;n</h3>
-                        <span>Educando sobre su importancia</span>
+            </li>
+        </ul>
+        <ul id="output">
+            <li>
+                <img alt="" src="images/banner001.jpg" />
+                <a href="http://www.gnewbook.org/pg/photos/owned/group:152">Ver m&aacute;s detalles</a>
+            </li>
+            <li>
 
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <img alt="" src="images/comunidad.png" />
-                        <h3>Comunidad</h3>
-                        <span>Compartimos Software Libre</span>
-                    </a>
-
-                </li>
-            </ul>
-            <ul id="output">
-                <li>
-                    <img alt="" src="images/banner001.jpg" />
-                    <a href="http://www.gnewbook.org/pg/photos/owned/group:152">Ver m&aacute;s detalles</a>
-                </li>
-                <li>
-
-                    <img alt="" src="images/banner002.jpg" />
-                    <a href="http://www.socios.fundaciongnuchile.cl/unirse.php">Ver m&aacute;s detalles</a>
-                </li>
-                <li>
-                    <img alt="" src="images/banner003.jpg" />
-                    <a href="http://www.gnewbook.org">Ver m&aacute;s detalles</a>
-                </li>
-            </ul>
-        </div>
+                <img alt="" src="images/banner002.jpg" />
+                <a href="http://www.socios.fundaciongnuchile.cl/unirse.php">Ver m&aacute;s detalles</a>
+            </li>
+            <li>
+                <img alt="" src="images/banner003.jpg" />
+                <a href="http://www.gnewbook.org">Ver m&aacute;s detalles</a>
+            </li>
+        </ul>
     </div>
 </div>
 
