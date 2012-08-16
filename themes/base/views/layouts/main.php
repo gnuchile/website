@@ -43,7 +43,7 @@
 					</a>
 				</div>
 				<div class="span8">
-					<p style="text-align:right;">
+					<p class="pull-right">
 						Call now on 555 555 555<br />
 						Follow us on <a class="badge badge-info" href="#" target="_blank">Twitter</a>
 					</p>
@@ -113,6 +113,24 @@
 	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/jquery.featureList-1.0.0.js"></script>
+<script language="javascript">
+    $(document).ready(function() {
+        $.featureList(
+            $("#tabs li a"),
+            $("#output li"), {
+                start_item	:	1
+            }
+        );
+        /*
+        // Alternative
+        $('#tabs li a').featureList({
+            output			:	'#output li',
+            start_item		:	1
+        });
+        */
+    });
 </script>
 </body>
 </html>
