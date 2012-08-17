@@ -21,9 +21,10 @@ If you have business inquiries or other questions, please fill out the following
 
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('EBootstrapActiveForm', array(
 	'id'=>'contact-form',
 	'enableClientValidation'=>true,
+    'horizontal'=>true,
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
 	),
@@ -33,47 +34,59 @@ If you have business inquiries or other questions, please fill out the following
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name'); ?>
-		<?php echo $form->error($model,'name'); ?>
-	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email'); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'subject'); ?>
-		<?php echo $form->textField($model,'subject',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'subject'); ?>
-	</div>
+    <?php echo $form->beginControlGroup($model, 'name'); ?>
+        <?php echo $form->labelEx($model,'name'); ?>
+        <?php echo $form->beginControls(); ?>
+            <?php echo $form->textField($model,'name'); ?>
+            <?php echo $form->error($model,'name'); ?>
+        <?php echo $form->endControls(); ?>
+    <?php echo $form->endControlGroup(); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'body'); ?>
-		<?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'body'); ?>
-	</div>
+    <?php echo $form->beginControlGroup($model, 'email'); ?>
+        <?php echo $form->labelEx($model,'email'); ?>
+        <?php echo $form->beginControls(); ?>
+            <?php echo $form->textFieldPrepend($model,'email','@'); ?>
+            <?php echo $form->error($model,'email'); ?>
+        <?php echo $form->endControls(); ?>
+    <?php echo $form->endControlGroup(); ?>
 
-	<?php if(CCaptcha::checkRequirements()): ?>
-	<div class="row">
-		<?php echo $form->labelEx($model,'verifyCode'); ?>
-		<div>
-		<?php $this->widget('CCaptcha'); ?>
-		<?php echo $form->textField($model,'verifyCode'); ?>
-		</div>
-		<div class="hint">Please enter the letters as they are shown in the image above.
-		<br/>Letters are not case-sensitive.</div>
-		<?php echo $form->error($model,'verifyCode'); ?>
-	</div>
-	<?php endif; ?>
+    <?php echo $form->beginControlGroup($model, 'subject'); ?>
+        <?php echo $form->labelEx($model,'subject'); ?>
+        <?php echo $form->beginControls(); ?>
+            <?php echo $form->textFieldAppend($model,'subject','!',array('maxlength'=>128)); ?>
+            <?php echo $form->error($model,'subject'); ?>
+        <?php echo $form->endControls(); ?>
+    <?php echo $form->endControlGroup(); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
-	</div>
+    <?php echo $form->beginControlGroup($model, 'body'); ?>
+        <?php echo $form->labelEx($model,'body'); ?>
+        <?php echo $form->beginControls(); ?>
+            <?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>
+            <?php echo $form->error($model,'body'); ?>
+        <?php echo $form->endControls(); ?>
+    <?php echo $form->endControlGroup(); ?>
 
+    <?php if(CCaptcha::checkRequirements()): ?>
+        <div class="captcha">
+            <?php echo $form->beginControlGroup($model, 'body'); ?>
+                <?php echo $form->labelEx($model,'verifyCode'); ?>
+                <?php echo $form->beginControls(); ?>
+                    <?php $this->widget('CCaptcha'); ?><br />
+                    <?php echo $form->textField($model,'verifyCode'); ?>
+
+                    <?php echo $form->helpBlock('Please enter the letters as they are shown in the image above.<br />Letters are not case-sensitive.'); ?>
+                    <?php echo $form->error($model,'verifyCode'); ?>
+                <?php echo $form->endControls(); ?>
+            <?php echo $form->endControls(); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php echo $form->beginActions(); ?>
+        <?php echo $form->submitButton('Submit'); ?>
+    <?php echo $form->endActions(); ?>
+    
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
