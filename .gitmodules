@@ -1,3 +1,6 @@
 [submodule "protected/extensions/giix"]
 	path = protected/extensions/giix
 	url = https://github.com/rcoelho/giix.git
+[submodule "protected/widgets/bootstrap"]
+	path = protected/widgets/bootstrap
+	url = https://github.com/VisualAppeal/YiiBootstrap.git
