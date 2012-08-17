@@ -23,7 +23,8 @@ return array(
 		'application.components.*',
 //                'application.modules.userGroups.*',
 //                'application.modules.user.models.*',
-                'ext.giix.components.*', // giix components
+        'ext.giix.components.*', // giix components
+        'application.widgets.bootstrap.*',
 	),
 
 	'modules'=>array(
