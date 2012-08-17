@@ -58,4 +58,32 @@ class Post extends BasePost
                 ));
     }
 
+    public function showCategoriesAsLabel()
+    {
+        foreach ($this->categories as $c)
+        {
+            echo $c->showAsLabel();
+        }
+    }
+
+    public function getCategoriesAsLabel()
+    {
+        $categories = array();
+        foreach ($this->categories as $c)
+        {
+            array_push($categories, $c->getAsLabel());
+        }
+        return implode('', $categories);
+    }
+
+    public function getPubDate($format = 'Y-m-d H:i:s')
+    {
+        return date($format, strtotime($this->publication_date));
+    }
+
+    public function getMarkdownBody()
+    {
+        $md = new CMarkdownParser;
+        return $md->safeTransform($this->body);
+    }
 }
