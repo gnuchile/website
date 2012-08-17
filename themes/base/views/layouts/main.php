@@ -97,7 +97,11 @@
 					<p>Copyright &copy; <?php echo date('Y'); ?> by Fundación GNUCHILE - Todo el contenido del sitio está bajo licencia Creative Commons BY-SA, a menos que se especifique lo contrario.</p>
 				</div>
 				<div class="span4">
-					<p style="text-align:right;"><a href="#" target="_blank"></a></p>
+					<p style="text-align:right;">
+                        <a href="#" target="_blank">
+                            <img width="150px" src="<?php echo Yii::app()->baseUrl; ?>/images/logo_gnuchile.png" alt="" />
+                        </a>
+                    </p>
 				</div>
 			</div>
 		</footer>
