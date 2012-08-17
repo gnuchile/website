@@ -48,6 +48,15 @@
 echo CHtml::openTag('div', array('class' => 'span8 well last-posts'));
 echo CHtml::tag('h2', array(), 'Últimas publicaciones');
 
+$this->widget('EBootstrapListView', array(
+    'dataProvider' => $dataProvider,
+    'itemView'     => '_view2',
+    'summaryText'  => false,
+    'htmlOptions'  =>
+    array(/*'class' => 'list-view last-posts1'*/),
+));
+
+/*
 $this->widget('bootstrap.widgets.BootListView', array(
     'dataProvider' => $dataProvider,
     'itemView'     => '_lastPublications',
@@ -55,5 +64,39 @@ $this->widget('bootstrap.widgets.BootListView', array(
     'htmlOptions'  =>
     array('class' => 'list-view last-posts1'),
 ));
-
+*/
 echo CHtml::closeTag('div');
+
+$menu = array(
+    array(
+        'label' => 'GNUCHILE', 'items' => array(
+            array('label' => 'Fundación', 'url' => '#', 'icon' => 'info-sign'),
+            array('label' => 'Socios', 'url' => '#', 'icon' => 'user'),
+            array('label' => 'Boletines', 'url' => '#', 'icon' => 'bullhorn'),
+            array(
+                'label' => Yii::t('base', 'Blogs'), 'url' => $this->createUrl('/blog/'), 'icon' => 'book',
+            ),
+            array('label' => 'Software', 'url' => '#', 'icon' => 'download-alt'),
+        ),
+    ),
+    
+    array(
+        'label' => 'Sitios relacionados', 'items' => array(
+            array('label' => 'Free Software Foundation', 'url' => 'http://www.fsf.org/', 'icon' => 'ok'),
+            array('label' => 'GNU Project', 'url' => 'http://www.gnu.org/', 'icon' => 'ok'),
+            array('label' => 'Free Software Foundation Latin America', 'url' => 'http://www.fsfla.org', 'icon' => 'ok'),
+        ),
+    ),
+);
+
+?>
+
+<div class="span3" id="sidebar">
+    <div class="well sidebar-nav">
+        <?php
+            $this->widget('EBootstrapSidebar', array(
+                'items'=>$menu,
+            ));
+        ?>
+    </div>
+</div>

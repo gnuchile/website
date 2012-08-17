@@ -16,7 +16,7 @@ $this->menu=array(
 
 <h1><?php echo 'View' . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<?php $this->widget('EBootstrapDetailView', array(
 	'data' => $model,
 	'attributes' => array(
 'id',

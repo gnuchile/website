@@ -1,27 +1,26 @@
 <div class="view post well well-small">
 
 	<?php
-        echo CHtml::openTag('h4', array());
+        echo CHtml::openTag('h3', array());
         echo GxHtml::link(GxHtml::encode($data->title), array('//post/view', 'id' => $data->id));
-        echo CHtml::closeTag('h4');
+        echo CHtml::closeTag('h3');
         
-        echo GxHtml::openTag('h6', array('class'=>''));
-        echo GxHtml::encode($data->getAttributeLabel('Autor')).': '.GxHtml::encode(GxHtml::valueEx($data->user)).'&nbsp;';
-        echo CHtml::tag('span', array('class'=>'label label-info'), '@ '.date('Y-m-d', strtotime($data->publication_date)));
-        echo CHtml::closeTag('h6');
+        echo GxHtml::openTag('h5', array('class'=>''));
+        echo CHtml::openTag('span', array('class'=>'label label-inverse'));
+            echo '<i class="icon-user icon-white"></i> '.GxHtml::encode(GxHtml::valueEx($data->user)).'';
+            echo '<i class="icon-time icon-white"></i> '.$data->getPubDate('Y-m-d');
 
-    ?>
-	<?php
-        foreach ($data->categories as $key => $c)
-        {
-            echo CHtml::tag('span', array('class'=>'label'), $c->name);
-            echo '&nbsp;';
-        }
+        echo CHtml::closeTag('span');
+        echo CHtml::closeTag('h5');
+
+        $data->showCategoriesAsLabel();
     ?>
 	<br />
-
-	<?php echo GxHtml::encode($data->getAttributeLabel('body')); ?>:
-	<?php echo GxHtml::encode($data->body); ?>
+<!--
+	<?php echo GxHtml::encode($data->getAttributeLabel('body')); ?>:-->
+	<?php 
+        echo $data->getMarkdownBody();
+    ?>
 	<br />
 	
     <?php echo GxHtml::encode($data->getAttributeLabel('visits')); ?>:
