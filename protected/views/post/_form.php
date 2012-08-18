@@ -34,7 +34,14 @@
 		<?php //echo $form->error($model,'title'); ?>
 
 		</div><!-- row -->
-                <?php echo $form->textAreaRow($model,'body',array('class'=>'span5')); ?>
+                <?php // echo $form->textAreaRow($model,'body',array('class'=>'span5')); ?>
+        <?php $this->widget(
+    'application.extensions.ddeditor.DDEditor',
+    array(
+        'model'=>$model,
+        'attribute'=>'body',
+        'htmlOptions'=>array('rows'=>10, 'cols'=>70),
+        'previewRequest'=>'post/preview')); ?>
 
 		<div class="row">
 		<?php // echo $form->labelEx($model,'body'); ?>
