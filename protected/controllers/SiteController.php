@@ -30,10 +30,10 @@ class SiteController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 
-        $dataProvider = new CActiveDataProvider(Post::model()->inFrontPage());
+        $posts = Post::model()->inFrontPage()->recently()->findAll();
 
 		$this->render('index', array(
-            'dataProvider'=>$dataProvider,
+            'posts'=>$posts,
         ));
 	}
 
