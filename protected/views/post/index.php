@@ -13,7 +13,25 @@ $this->menu = array(
 
 <h1><?php echo GxHtml::encode(Post::label(2)); ?></h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
+<?php
+$this->widget('EBootstrapListView', array(
+    'dataProvider' => $dataProvider,
+    'itemView'     => '_view2',
+    'summaryText'  => false,
+    'htmlOptions'  =>
+        array(/*'class' => 'list-view last-posts1'*/),
+    'pager' => array(
+        'class' => 'EBootstrapLinkPager',
+        )
+));
+
+
+/*
+ *
+ $this->widget('zii.widgets.CListView', array(
+
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
-)); 
+));
+ *
+ */
