@@ -13,7 +13,7 @@ class PostController extends GxController
     {
         return array(
             array('allow',
-                'actions' => array('index', 'view'),
+                'actions' => array('index', 'view', 'preview'),
                 'users' => array('*'),
             ),
             array('allow',
@@ -115,4 +115,9 @@ class PostController extends GxController
         ));
     }
 
+    public function actionPreview()
+    {
+        $parser=new CMarkdownParser;
+        echo $parser->safeTransform($_POST['Post'][$_GET['attribute']]);
+    }
 }
