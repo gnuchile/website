@@ -5,10 +5,8 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
-        $posts = Post::model()->inBlog()->findAll();
-        $dataProvider = new CActiveDataProvider(Post::model()->inFrontPage());
+        $dataProvider = new CActiveDataProvider(Post::model()->inBlog());
         $this->render('index', array(
-            'posts' => $posts,
             'dataProvider' => $dataProvider,
                 )
         );
