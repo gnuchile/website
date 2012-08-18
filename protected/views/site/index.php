@@ -48,23 +48,108 @@
 echo CHtml::openTag('div', array('class' => 'span8 well last-posts'));
 echo CHtml::tag('h2', array(), 'Últimas publicaciones');
 
+/*
 $this->widget('EBootstrapListView', array(
-    'dataProvider' => $dataProvider,
+    'dataProvider' => $postProvider,
     'itemView'     => '_view2',
-    'summaryText'  => false,
-    'htmlOptions'  =>
-    array(/*'class' => 'list-view last-posts1'*/),
+//    'summaryText'  => false,
 ));
 
-/*
 $this->widget('bootstrap.widgets.BootListView', array(
-    'dataProvider' => $dataProvider,
+    'dataProvider' => $postProvider,
     'itemView'     => '_lastPublications',
     'summaryText'  => false,
     'htmlOptions'  =>
     array('class' => 'list-view last-posts1'),
 ));
 */
+
+//echo CHtml::closeTag('div');
+?>
+<style>
+    .clearfix {
+}
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.bootstrap-list-view .summary {
+    font-style: italic;
+}
+.bootstrap-list-view .bootstrap-list-view-item {
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px 3px 3px 3px;
+    margin-bottom: 10px;
+}
+.bootstrap-list-view .bootstrap-list-view-item .bootstrap-list-view-item-content {
+    padding: 0 10px;
+}
+.bootstrap-list-view .bootstrap-list-view-item .bootstrap-list-view-item-content .bootstrap-list-view-item-attribute {
+    font-weight: bold;
+}
+.bootstrap-list-view .bootstrap-list-view-item .bootstrap-list-view-item-content:last-child {
+    padding-bottom: 10px;
+}
+.bootstrap-list-view .bootstrap-list-view-item .bootstrap-list-view-item-title {
+    background-color: #EBEBEB;
+    background-image: -moz-linear-gradient(center top , #EEEEEE, #E6E6E6);
+    background-repeat: repeat-x;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+}
+.bootstrap-list-view .bootstrap-list-view-item:last-child {
+    margin-bottom: 0;
+}
+.bootstrap-grid-view .summary {
+    font-style: italic;
+}
+.bootstrap-grid-view table tr td {
+    min-width: 60px;
+}
+.bootstrap-grid-view table tr td input {
+    width: auto;
+}
+
+</style>
+<div class="list-view bootstrap-list-view" id="yw0">
+<?php
+foreach($posts as $post)
+{
+    ?>
+        <div class="post detail-view bootstrap-list-view-item" id="yw1">
+            <div class="bootstrap-list-view-item-title bootstrap-list-view-item-content">
+                <span class="bootstrap-list-view-item-value">
+                    <?php echo CHtml::link($post->title, array('//post/view', 'id' => $post->id)); ?>
+                </span>
+            </div>
+            <div class="bootstrap-list-view-item-content">
+                <span class="bootstrap-list-view-item-value">
+                    <?php
+                        $post->showUserAndDateAsLabel();
+                    ?>
+                </span>
+            </div>
+            <div class="bootstrap-list-view-item-content">
+                <span class="bootstrap-list-view-item-value">
+                    <?php echo $post->getMarkdownBody(true); ?>
+                </span>
+                <span class="bootstrap-list-view-item-value">
+                    <?php echo CHtml::link('Leer más...', array('//post/view', 'id' => $post->id), array('class'=>'btn btn-mini pull-right')); ?>
+                </span>
+            </div>
+            <div class="post bootstrap-list-view-item-content">
+                <span class="bootstrap-list-view-item-value">
+                    <?php echo $post->getCategoriesAsLabel(); ?>
+                </span>
+            </div>
+        </div>
+    <?php
+}
+echo CHtml::closeTag('div');
 echo CHtml::closeTag('div');
 
 $menu = array(
