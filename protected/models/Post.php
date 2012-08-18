@@ -44,8 +44,9 @@ class Post extends BasePost
                 'condition' => 'in_frontpage=1',
             ),
             'recently'  => array(
-                'order' => 'create_time DESC',
-                'limit' => 5,
+                'condition'=>'publication_date is not null',
+                'order' => 'publication_date DESC',
+                'limit' => 3,
             ),
         );
     }
@@ -81,9 +82,23 @@ class Post extends BasePost
         return date($format, strtotime($this->publication_date));
     }
 
-    public function getMarkdownBody()
+    public function getMarkdownBody($partial = false)
     {
         $md = new CMarkdownParser;
-        return $md->safeTransform($this->body);
+        if($partial)
+            $this->body=  mb_substr ($this->body, 0, 250);
+        $body = $md->safeTransform($this->body);
+//        var_dump($body);//exit;
+        return $body;
+    }
+
+    public function showUserAndDateAsLabel()
+    {
+        echo GxHtml::openTag('h5', array('class' => ''));
+        echo CHtml::openTag('span', array('class' => 'label label-inverse'));
+            echo '<i class="icon-user icon-white"></i> ' . GxHtml::encode(GxHtml::valueEx($this->user)).'&nbsp;';
+            echo '<i class="icon-time icon-white"></i> ' . $this->getPubDate('Y-m-d');
+        echo CHtml::closeTag('span');
+        echo CHtml::closeTag('h5');
     }
 }
