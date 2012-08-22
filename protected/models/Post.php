@@ -84,12 +84,17 @@ class Post extends BasePost
 
     public function getMarkdownBody($partial = false)
     {
-        $md = new CMarkdownParser;
-        if($partial)
-            $this->body=  mb_substr ($this->body, 0, 250);
-        $body = $md->safeTransform($this->body);
-//        var_dump($body);//exit;
-        return $body;
+        if($this->body)
+        {
+            $md = new CMarkdownParser;
+            if($partial)
+                $this->body=  mb_substr ($this->body, 0, 250);
+            $body = $md->safeTransform($this->body);
+    //        var_dump($body);//exit;
+            return $body;
+        }
+        else
+            return '<br/>';
     }
 
     public function showUserAndDateAsLabel()
@@ -100,5 +105,26 @@ class Post extends BasePost
             echo '<i class="icon-time icon-white"></i> ' . $this->getPubDate('Y-m-d');
         echo CHtml::closeTag('span');
         echo CHtml::closeTag('h5');
+    }
+
+    public function showUserAndDate()
+    {
+        echo GxHtml::openTag('h5', array('class' => ''));
+        echo CHtml::openTag('span', array('class' => ''));
+            echo '<i class="icon-user"></i> ' . GxHtml::encode(GxHtml::valueEx($this->user)).'&nbsp;';
+            echo '<i class="icon-time"></i> ' . $this->getPubDate('Y-m-d');
+        echo CHtml::closeTag('span');
+        echo CHtml::closeTag('h5');
+    }
+
+    public function getUserAndDate()
+    {
+        $return= GxHtml::openTag('h5', array('class' => 'pull-right'));
+        $return.= CHtml::openTag('span', array('class' => ''));
+        $return.=     '<i class="icon-user"></i> ' . GxHtml::encode(GxHtml::valueEx($this->user)).'&nbsp;';
+        $return.=     '<i class="icon-time"></i> ' . $this->getPubDate('Y-m-d');
+        $return.= CHtml::closeTag('span');
+        $return.= CHtml::closeTag('h5');
+        return $return;
     }
 }

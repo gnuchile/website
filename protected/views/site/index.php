@@ -124,12 +124,16 @@ foreach($posts as $post)
             <div class="bootstrap-list-view-item-title bootstrap-list-view-item-content">
                 <span class="bootstrap-list-view-item-value">
                     <?php echo CHtml::link($post->title, array('//post/view', 'id' => $post->id)); ?>
+                    <span class="pull-right">
+                        <?php echo $post->showUserAndDate(); ?>
+                    </span>
                 </span>
             </div>
             <div class="bootstrap-list-view-item-content">
                 <span class="bootstrap-list-view-item-value">
                     <?php
-                        $post->showUserAndDateAsLabel();
+                        //$post->showUserAndDateAsLabel();
+                        echo $post->getCategoriesAsLabel();
                     ?>
                 </span>
             </div>
@@ -137,13 +141,10 @@ foreach($posts as $post)
                 <span class="bootstrap-list-view-item-value">
                     <?php echo $post->getMarkdownBody(true); ?>
                 </span>
-                <span class="bootstrap-list-view-item-value">
-                    <?php echo CHtml::link('Leer más...', array('//post/view', 'id' => $post->id), array('class'=>'btn btn-mini pull-right')); ?>
-                </span>
             </div>
-            <div class="post bootstrap-list-view-item-content">
+            <div class="bootstrap-list-view-item-content">
                 <span class="bootstrap-list-view-item-value">
-                    <?php echo $post->getCategoriesAsLabel(); ?>
+                    <?php echo CHtml::link('Leer más...', array('//post/view', 'id' => $post->id), array('class'=>'btn btn-mini ')); ?>
                 </span>
             </div>
         </div>

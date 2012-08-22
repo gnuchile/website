@@ -17,6 +17,8 @@ class Category extends BaseCategory
 
     public function getAsLabel()
     {
-        return CHtml::tag('span', array('class'=>'label', 'style'=>'margin:0 5px 0 0'), CHtml::tag('i', array('class'=>'icon-bookmark', 'style'=>'padding: 0 3px'), '').$this->name);
+//        GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('category/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)))
+//        return CHtml::tag('span', array('class'=>'label', 'style'=>'margin:0 5px 0 0'), CHtml::tag('i', array('class'=>'icon-bookmark', 'style'=>'padding: 0 3px'), '').$this->name);
+        return CHtml::tag('span', array('class'=>'label', 'style'=>'margin:0 5px 0 0'), CHtml::tag('i', array('class'=>'icon-bookmark', 'style'=>'padding: 0 3px'), '').GxHtml::link($this->name, array('category/view', 'id' => $this->id)));
     }
 }

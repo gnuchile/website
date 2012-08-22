@@ -3,6 +3,7 @@
 return CMap::mergeArray(
 	require(dirname(__FILE__).'/main.php'),
 	array(
+//		'import'=>array('ext.wunit.*'),
 		'components'=>array(
 			'fixture'=>array(
 				'class'=>'system.test.CDbFixtureManager',
@@ -12,6 +13,9 @@ return CMap::mergeArray(
 				'connectionString'=>'DSN for test database',
 			),
 			*/
+//		    'wunit'=>array(
+//			    'class'=>'WUnit'
+//			    )
 		),
 	)
 );

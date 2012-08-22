@@ -5,19 +5,24 @@ $this->breadcrumbs=array(
 	ucwords($this->module->id)
     );
 ?>
+<div class="span12">
 <h1>Blogs de <?php echo Yii::app()->name; ?></h1>
 <?php
 
-echo CHtml::openTag('div', array('class' => 'span11 well last-posts'));
+echo CHtml::openTag('div', array('class' => '', 'style'=>'margin:20px 60px 0 0;'));
 
 $this->widget('EBootstrapListView', array(
     'dataProvider' => $dataProvider,
     'itemView'     => '_view2',
-    'summaryText'  => false,
+    'cssFile'=>false,
+    'summaryCssClass' => 'alert alert-info',
+    //'summaryText'  => false,
     'htmlOptions'  =>
         array(/*'class' => 'list-view last-posts1'*/),
     'pager' => array(
         'class' => 'EBootstrapLinkPager',
+        'cssFile'=>false,
+        'header'=>false,
         )
 ));
 
@@ -42,3 +47,6 @@ foreach($posts as $post)
 
  *
  */
+?>
+
+</div>

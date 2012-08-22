@@ -14,8 +14,17 @@ $this->menu=array(
 );
 ?>
 
-<h1><?php echo 'View' . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+<h1><?php echo /*GxHtml::encode($model->label()) . ' ' .*/ GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+<?php
+echo CHtml::openTag('div', array('class'=>'categories post-data'));
+$model->showUserAndDate();
+echo $model->getCategoriesAsLabel();
 
+echo CHtml::closeTag('div');
+echo $model->getMarkdownBody();
+
+/*
+?>
 <?php $this->widget('EBootstrapDetailView', array(
 	'data' => $model,
 	'attributes' => array(

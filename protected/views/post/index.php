@@ -17,11 +17,15 @@ $this->menu = array(
 $this->widget('EBootstrapListView', array(
     'dataProvider' => $dataProvider,
     'itemView'     => '_view2',
-    'summaryText'  => false,
+    'cssFile'=>false,
+    'summaryCssClass' => 'alert alert-info',
+    //'summaryText'  => false,
     'htmlOptions'  =>
         array(/*'class' => 'list-view last-posts1'*/),
     'pager' => array(
         'class' => 'EBootstrapLinkPager',
+        'cssFile'=>false,
+        'header'=>false,
         )
 ));
 
