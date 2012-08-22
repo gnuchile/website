@@ -55,3 +55,6 @@ array(
 	}
 	echo GxHtml::closeTag('ul');
 ?>
+
+ */
+?>
