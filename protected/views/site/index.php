@@ -1,6 +1,6 @@
 <?php $this->pageTitle = Yii::app()->name; ?>
 <div class="page-header header visible-desktop">
-    <div id="feature_list">
+    <div id="feature_list" class="pull-left">
         <ul id="tabs">
             <li>
                 <a href="javascript:;">
@@ -41,6 +41,17 @@
                 <a href="http://www.gnewbook.org">Ver m&aacute;s detalles</a>
             </li>
         </ul>
+    </div>
+
+    <div class="pull-right well well-small header-right">
+        <div class="pull-right donacion">
+            <img alt="" src="images/der_donar.png" class="pull-left well-small" />
+            <a class="btn btn-success pull-left">Donar</a>
+        </div>
+        <div class="pull-right hazte-socio">
+            <img alt="" src="images/der_unete.png" class="pull-left well-small" />
+            <a class="btn btn-info pull-left">Únete</a>
+        </div>
     </div>
 </div>
 
