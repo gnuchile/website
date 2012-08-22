@@ -44,7 +44,7 @@
 				</div>
 				<div class="span8">
 					<p class="pull-right">
-						Call now on 555 555 555<br />
+						<br />
 						Síguenos en <a class="badge badge-important" href="http://identi.ca/fundaciongnuchile" target="_blank">Identi.ca</a>
 					</p>
 				</div>
