@@ -10,7 +10,10 @@
 //			'title'=>'Operations',
 ////			'htmlOptions'=>array('class'=>'sidebar-nav'),
 //		));
-
+        if(!Yii::app()->user->id)
+        {
+            $this->menu=array();
+        }
         // se modifica $this->menu para adecuarlo a EBoostrapSidebar :)
         $this->menu = array(array('label'=>'Operations', 'items'=>$this->menu));
 
