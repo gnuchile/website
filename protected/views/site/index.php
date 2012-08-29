@@ -46,11 +46,11 @@
     <div class="pull-right well well-small header-right">
         <div class="pull-right donacion">
             <img alt="" src="images/der_donar.png" class="pull-left well-small" />
-            <a class="btn btn-success pull-left">Donar</a>
+            <a class="btn btn-success pull-left" href="http://www.socios.fundaciongnuchile.cl/donar.php">Donar</a>
         </div>
         <div class="pull-right hazte-socio">
             <img alt="" src="images/der_unete.png" class="pull-left well-small" />
-            <a class="btn btn-info pull-left">Únete</a>
+            <a class="btn btn-info pull-left" href="http://www.socios.fundaciongnuchile.cl/unirse.php">Únete</a>
         </div>
     </div>
 </div>
@@ -168,12 +168,12 @@ $menu = array(
     array(
         'label' => 'GNUCHILE', 'items' => array(
             array('label' => 'Fundación', 'url' => '#', 'icon' => 'info-sign'),
-            array('label' => 'Socios', 'url' => '#', 'icon' => 'user'),
-            array('label' => 'Boletines', 'url' => '#', 'icon' => 'bullhorn'),
+            array('label' => 'Socios', 'url' => 'http://www.socios.fundaciongnuchile.cl/', 'icon' => 'user'),
+            array('label' => 'Boletines', 'url' => 'http://www.boletines.fundaciongnuchile.cl/', 'icon' => 'bullhorn'),
             array(
                 'label' => Yii::t('base', 'Blogs'), 'url' => $this->createUrl('/blog/'), 'icon' => 'book',
             ),
-            array('label' => 'Software', 'url' => '#', 'icon' => 'download-alt'),
+            array('label' => 'Software', 'url' => 'http://www.software.fundaciongnuchile.cl/', 'icon' => 'download-alt'),
         ),
     ),
     
