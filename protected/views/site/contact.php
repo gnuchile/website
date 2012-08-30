@@ -1,11 +1,11 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
+$this->pageTitle=Yii::app()->name . ' - '. Yii::t('site', 'Contact Us');
 $this->breadcrumbs=array(
 	'Contacto',
 );
 ?>
 <div class="span10">
-<h1>Contact Us</h1>
+<h1>Contacto</h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
@@ -16,7 +16,7 @@ $this->breadcrumbs=array(
 <?php else: ?>
 
 <p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+Por cualquier duda o consulta, no dudes en contactarnos!
 </p>
 
 <div class="form">
@@ -30,7 +30,7 @@ If you have business inquiries or other questions, please fill out the following
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos con <span class="required">*</span> son requeridos.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -76,7 +76,7 @@ If you have business inquiries or other questions, please fill out the following
                     <?php $this->widget('CCaptcha'); ?><br />
                     <?php echo $form->textField($model,'verifyCode'); ?>
 
-                    <?php echo $form->helpBlock('Please enter the letters as they are shown in the image above.<br />Letters are not case-sensitive.'); ?>
+                    <?php echo $form->helpBlock(Yii::t('site','Please enter the letters as they are shown in the image above.<br />Letters are not case-sensitive.')); ?>
                     <?php echo $form->error($model,'verifyCode'); ?>
                 <?php echo $form->endControls(); ?>
             <?php echo $form->endControls(); ?>
@@ -84,7 +84,7 @@ If you have business inquiries or other questions, please fill out the following
     <?php endif; ?>
 
     <?php echo $form->beginActions(); ?>
-        <?php echo $form->submitButton('Submit'); ?>
+        <?php echo $form->submitButton(Yii::t('site', 'Submit')); ?>
     <?php echo $form->endActions(); ?>
     
 <?php $this->endWidget(); ?>
