@@ -46,9 +46,9 @@ abstract class BasePost extends GxActiveRecord {
 			array('title, created_at', 'required'),
 			array('user_id, in_frontpage, in_blog', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>200),
-			array('status, publication_date', 'length', 'max'=>45),
+			array('status', 'length', 'max'=>45),
 			array('visits', 'length', 'max'=>20),
-			array('body', 'safe'),
+			array('body, publication_date', 'safe'),
 			array('user_id, body, status, in_frontpage, publication_date, visits, in_blog', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, user_id, title, body, status, in_frontpage, created_at, publication_date, visits, in_blog', 'safe', 'on'=>'search'),
 		);
