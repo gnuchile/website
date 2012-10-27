@@ -6,6 +6,6 @@ $config=dirname(__FILE__).'/../config/test.php';
 
 require_once($yiit);
 //require_once(dirname(__FILE__).'/WebTestCase.php');
-require(dirname(__FILE__) . '/../extensions/wunit/WUnit.php');
+//require(dirname(__FILE__) . '/../extensions/wunit/WUnit.php');
 //var_dump(Yii::getBasePath());exit;
-WUnit::createWebApplication($config);
+Yii::createWebApplication($config);

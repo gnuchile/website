@@ -18,6 +18,9 @@ class SiteController extends Controller
 			'static'=>array(
 				'class'=>'CViewAction',
 			),
+			'socios'=>array(
+				'class'=>'CViewAction',
+			),
 		);
 	}
 
