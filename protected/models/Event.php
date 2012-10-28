@@ -12,7 +12,22 @@ class Event extends BaseEvent
 
     public function getStartDate()
     {
-        return $this->dates[0]->start_date;
+        return trim($this->dates[0]->start_date);
+    }
+
+    public function getEndDate()
+    {
+        return trim($this->dates[0]->end_date);
+    }
+
+    public function getStartTime()
+    {
+        return trim($this->dates[0]->start_time);
+    }
+
+    public function getEndTime()
+    {
+        return trim($this->dates[0]->end_time);
     }
 
     private function getAllAsArray()
@@ -24,8 +39,13 @@ class Event extends BaseEvent
         foreach (Event::model()->findAll() as $event)
         {
             $eventData = array(
-                'title'=>$event->name,
-                'start'=>$event->getStartDate()
+                'title' => $event->name,
+                'start' => $event->getStartDate(),
+                'url' => Yii::app()->createAbsoluteUrl('event/view', array('id'=>$event->id)),
+                'start_date' => $event->getStartDate(),
+                'end_date' => $event->getEndDate(),
+                'start_time' => $event->getStartTime(),
+
             );
             array_push($eventsArray, $eventData);
         }

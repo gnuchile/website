@@ -13,5 +13,8 @@
 	<?php echo GxHtml::encode($data->getAttributeLabel('eventType')); ?>:
 	<?php echo GxHtml::encode(GxHtml::valueEx($data->eventType)); ?>
 	<br />
-
+	<?php echo GxHtml::encode($data->getAttributeLabel('startDate')); ?>:
+	<?php echo $data->getStartDate(); ?>
+	<br />
+	
 </div>

@@ -13,7 +13,6 @@
         Yii::app()->clientScript->scriptMap = array(
             'jquery.js' => false,
         );
-
         // Load Yii's generated javascript at bottom of page
         // instead of the 'head', ensuring it loads after JQuery
         Yii::app()->getClientScript()->coreScriptPosition = CClientScript::POS_END;
@@ -129,9 +128,5 @@
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
-        <script type="text/javascript">
-            
-        </script>
-
     </body>
 </html>
