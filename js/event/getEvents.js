@@ -24,7 +24,7 @@ $('#calendar').fullCalendar({
         if (event.title) {
             $("#myModalLabel").text(event.title);
             $(".modal-body > .date > .start > .start_date").text(getDate(event.start_date, true));
-            $(".modal-body > .date > .start > .start_date").text(event.start_time);
+            $(".modal-body > .date > .start > .start_time").text(event.start_time);
 
             $(".modal-body > .date > .end > .end_date").text(getDate(event.end_date, true));
             $(".modal-body > .date > .end > .end_time").text(event.end_time);
