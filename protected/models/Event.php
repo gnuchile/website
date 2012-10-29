@@ -68,6 +68,7 @@ class Event extends BaseEvent
                 'start_date' => $event->getStartDate(),
                 'end_date' => $event->getEndDate(),
                 'start_time' => $event->getStartTime(),
+                'end_time' => $event->getEndTime(),
             );
             array_push($eventsArray, $eventData);
         }
