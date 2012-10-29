@@ -6,8 +6,10 @@ $('#calendar').fullCalendar({
     header: {
         left: 'prev,next today',
         center: 'title',
-        right: 'month,basicWeek,basicDay'
+        right: 'month,agendaWeek,agendaDay'
     },
+    allDayDefault: false,
+    timeFormat: 'H:mm{ - H:mm}', // uppercase H for 24-hour clock
     firstDay: 1, // lunes
     defaultView: 'month',
     buttonText: {

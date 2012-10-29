@@ -10,24 +10,46 @@ class Event extends BaseEvent
         return parent::model($className);
     }
 
+    public function getStart()
+    {
+        return $this->getStartDate(). ' '.$this->getStartTime();
+    }
+
+    public function getEnd()
+    {
+        return $this->getEndDate(). ' '.$this->getEndTime();
+    }
+
     public function getStartDate()
     {
-        return trim($this->dates[0]->start_date);
+        if (!empty($this->dates))
+        {
+            return trim($this->dates[0]->start_date);
+        }
     }
 
     public function getEndDate()
     {
-        return trim($this->dates[0]->end_date);
+        if (!empty($this->dates))
+        {
+            return trim($this->dates[0]->end_date);
+        }
     }
 
     public function getStartTime()
     {
-        return trim($this->dates[0]->start_time);
+        if (!empty($this->dates))
+        {
+            return trim($this->dates[0]->start_time);
+        }
     }
 
     public function getEndTime()
     {
-        return trim($this->dates[0]->end_time);
+        if (!empty($this->dates))
+        {
+            return trim($this->dates[0]->end_time);
+        }
     }
 
     private function getAllAsArray()
@@ -40,12 +62,12 @@ class Event extends BaseEvent
         {
             $eventData = array(
                 'title' => $event->name,
-                'start' => $event->getStartDate(),
-                'url' => Yii::app()->createAbsoluteUrl('event/view', array('id'=>$event->id)),
+                'start' => $event->getStart(),
+                'end' => $event->getEnd(),
+                'url' => Yii::app()->createAbsoluteUrl('event/view', array('id' => $event->id)),
                 'start_date' => $event->getStartDate(),
                 'end_date' => $event->getEndDate(),
                 'start_time' => $event->getStartTime(),
-
             );
             array_push($eventsArray, $eventData);
         }
