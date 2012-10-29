@@ -10,6 +10,7 @@ $('#calendar').fullCalendar({
     },
     allDayDefault: false,
     timeFormat: 'H:mm{ - H:mm}', // uppercase H for 24-hour clock
+    defaultEventMinutes: 30,
     firstDay: 1, // lunes
     defaultView: 'month',
     buttonText: {
